@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>SurveySystem</title>
-    <link rel="stylesheet" href="">
+    <title>CustomerManagement</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -21,7 +20,7 @@
 <body>
     <nav class="uk-navbar">
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="../index.html">問卷系統</a></li>
+            <li class="uk-active"><a href="../index.html">客戶管理系統</a></li>
             <li><a href="">測試1</a></li>
             <li class="uk-parent"><a href="">測試2</a></li>
         </ul>
