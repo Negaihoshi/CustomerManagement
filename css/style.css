@@ -1,0 +1,12 @@
+#content {
+	padding:10px 10px 63px; /* bottom padding for footer，其中3px是for footer的邊框 */
+}
+
+#footer {
+	position:absolute;
+	width:100%;
+	bottom:0; /* stick to bottom */
+	border-top:3px none #333;
+	height:auto;
+	text-align:center;
+}
