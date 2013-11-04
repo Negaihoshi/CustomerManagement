@@ -28,7 +28,7 @@
 <body>
     <nav class="uk-navbar">
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="../index.html">客戶管理系統</a></li>
+            <li class="uk-active"><a href="../index.php">客戶管理系統</a></li>
             <li><a href="customerList.php">客戶管理</a></li>
             <li class="uk-parent"><a href="addCustomer.php">新客戶</a></li>
         </ul>

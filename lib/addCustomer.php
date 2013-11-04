@@ -28,9 +28,9 @@
 <body>
     <nav class="uk-navbar">
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="../index.html">客戶管理系統</a></li>
-            <li><a href="oldSurveyList.php">舊問卷</a></li>
-            <li class="uk-parent"><a href="newSurveyList.php">新問卷</a></li>
+            <li class="uk-active"><a href="../index.php">客戶管理系統</a></li>
+            <li><a href="customerList.php">客戶管理</a></li>
+            <li class="uk-parent"><a href="addCustomer.php">新客戶</a></li>
         </ul>
 
         <div class="uk-navbar-flip">
@@ -44,39 +44,25 @@
 
 
     <div id="container">
-        
-        <?php
-        include("connect_db.php");
+        <div clss="uk-grid">
 
-        //此判斷為判定觀看此頁有沒有權限
-        //說不定是路人或不相關的使用者
-        //因此要給予排除
+                <form class="uk-form" name="editForm" method="post" action="update.php">
+                    <fieldset>
+                        <legend>會員資料</legend>
+
+                            <label class="uk-form-label" for="username">使用者名稱</label>
+                            <input type="text"  class="uk-form-width-medium" id="username" name="username" required autofucus>
 
 
+                            <label class="uk-form-label" for="email">電子信箱</label>
+                            <input type="email"  class="uk-form-width-medium" id="email" name="email">
 
 
-        if($_SESSION['email'] != null)
-        {
-                echo '<a href="register.php">新增</a>    ';
-                echo '<a href="update.php">修改</a>    ';
-                echo '<a href="delete.php">刪除</a>  <br><br>';
-            
-                //將資料庫裡的所有會員資料顯示在畫面上
-                $sql = "SELECT * FROM member";
-                $result = mysql_query($sql);
-                while( $row = mysql_fetch_row($result))
-                {
-                    echo "ID：$row[0]<br> 使用者名稱：$row[1]<br>" . 
-                    "密碼：$row[3] <br> 註冊時間：$row[4] <br>";
-                }
-        }
-        else
-        {
-                echo '您無權限觀看此頁面!';
-             //   echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
-        }
+                    </fieldset>
+                    <button class="uk-button" type="submit">修改</button>
+                </form>
 
-        ?>
+        </div>
     </div>
     
     <footer id="footer">

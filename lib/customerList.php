@@ -28,9 +28,9 @@
 <body>
     <nav class="uk-navbar">
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="../index.html">客戶管理系統</a></li>
-            <li><a href="oldSurveyList.php">舊問卷</a></li>
-            <li class="uk-parent"><a href="newSurveyList.php">新問卷</a></li>
+            <li class="uk-active"><a href="../index.php">客戶管理系統</a></li>
+            <li><a href="customerList.php">客戶管理</a></li>
+            <li class="uk-parent"><a href="addCustomer.php">新客戶</a></li>
         </ul>
 
         <div class="uk-navbar-flip">
@@ -54,20 +54,16 @@
 
 
 
-
+echo "<table class='uk-table'><caption>會員資料</caption><thead>";
+echo "<tr><th>ID</th><th>UserName</th><th>Email</th><th>Password</th><th>Admin</th><th>RegisterDate</th></tr></thead><tbody>";
         if($_SESSION['email'] != null)
-        {
-                echo '<a href="register.php">新增</a>    ';
-                echo '<a href="update.php">修改</a>    ';
-                echo '<a href="delete.php">刪除</a>  <br><br>';
-            
+        {        
                 //將資料庫裡的所有會員資料顯示在畫面上
                 $sql = "SELECT * FROM member";
                 $result = mysql_query($sql);
                 while( $row = mysql_fetch_row($result))
                 {
-                    echo "ID：$row[0]<br> 使用者名稱：$row[1]<br>" . 
-                    "密碼：$row[3] <br> 註冊時間：$row[4] <br>";
+                   echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td></tr>";
                 }
         }
         else
@@ -75,8 +71,9 @@
                 echo '您無權限觀看此頁面!';
              //   echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
         }
-
+        echo "</tbody></table>";
         ?>
+
     </div>
     
     <footer id="footer">

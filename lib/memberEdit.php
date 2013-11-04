@@ -34,7 +34,7 @@
 <body>
     <nav class="uk-navbar">
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="../index.html">客戶管理系統</a></li>
+            <li class="uk-active"><a href="../index.php">客戶管理系統</a></li>
             <li><a href="">測試1</a></li>
             <li class="uk-parent"><a href="">測試2</a></li>
         </ul>
@@ -51,7 +51,6 @@
 
 
     <div id="container">
-        <?echo "030";?>
         <div clss="uk-grid">
         <div class="uk-width-2-5 uk-container-center">
         <form class="uk-form uk-form-horizontal" name="editForm" method="post" action="update.php">
