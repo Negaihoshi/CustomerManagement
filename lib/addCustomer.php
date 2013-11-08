@@ -45,23 +45,26 @@
 
     <div id="container">
         <div clss="uk-grid">
+            <form class="uk-form" name="editForm" method="post" action="customerAddCheck.php">
+                <fieldset>
+                    <legend>會員資料</legend>
+                        <label class="uk-form-label" for="customerName">客戶名稱</label>
+                        <input type="text"  class="uk-form-width-medium" id="customerName" name="customerName" required autofucus>
 
-                <form class="uk-form" name="editForm" method="post" action="update.php">
-                    <fieldset>
-                        <legend>會員資料</legend>
+                        <label class="uk-form-label" for="email">電子信箱</label>
+                        <input type="email"  class="uk-form-width-medium" id="email" name="email">
 
-                            <label class="uk-form-label" for="username">使用者名稱</label>
-                            <input type="text"  class="uk-form-width-medium" id="username" name="username" required autofucus>
+                        <label class="uk-form-label" for="phone">聯絡電話</label>
+                        <input type="text"  class="uk-form-width-medium" id="phone" name="phone">
 
+                        <label class="uk-form-label" for="mobile">行動電話</label>
+                        <input type="text"  class="uk-form-width-medium" id="mobile" name="mobile">
 
-                            <label class="uk-form-label" for="email">電子信箱</label>
-                            <input type="email"  class="uk-form-width-medium" id="email" name="email">
-
-
-                    </fieldset>
-                    <button class="uk-button" type="submit">修改</button>
-                </form>
-
+                        <label class="uk-form-label" for="address">地址</label>
+                        <input type="text"  class="uk-form-width-medium" id="address" name="address">
+                </fieldset>
+                <button class="uk-button" type="submit">新增</button>
+            </form>
         </div>
     </div>
     

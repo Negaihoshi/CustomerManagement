@@ -28,7 +28,7 @@ if($username != null && $email != null && $password != null && $repeatPassword !
         else
         {
                 echo '新增失敗!';
-                echo '<meta http-equiv=REFRESH CONTENT=2;url=../index.html>';
+                echo '<meta http-equiv=REFRESH CONTENT=2;url=../index.php>';
         }
 }
 else

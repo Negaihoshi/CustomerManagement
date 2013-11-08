@@ -63,55 +63,7 @@ echo "<tr><th>ID</th><th>UserName</th><th>Email</th><th>Password</th><th>Admin</
                 $result = mysql_query($sql);
                 while( $row = mysql_fetch_row($result))
                 {
-                    //echo "ID：$row[0]<br> 使用者名稱：$row[1]<br>" . 
-                    //"密碼：$row[3] <br>Admin：$row[4]  <br> 註冊時間：$row[5] <br>";
-                    
-                    echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td></tr>";
-                    /*
-                    <table class="uk-table">
-                        <caption>會員資料</caption>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                            </tr>
-                             <tr>
-                                <th>UserName</th>
-                            </tr>
-                             <tr>
-                                <th>Email</th>
-                            </tr>
-                             <tr>
-                                <th>Password</th>
-                            </tr>
-                            <tr>
-                                <th>Admin</th>
-                            </tr>
-                            <tr>
-                                <th>RegisterDate</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>$row[0]</td>
-                            </tr>
-                            <tr>
-                                <td>$row[1]</td>
-                            </tr>
-                            <tr>
-                                <td>$row[2]</td>
-                            </tr>
-                            <tr>
-                                <td>$row[3]</td>
-                            </tr>
-                            <tr>
-                                <td>$row[4]</td>
-                            </tr>
-                            <tr>
-                                <td>$row[5]</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    */
+                   echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td></tr>";
                 }
         }
         else

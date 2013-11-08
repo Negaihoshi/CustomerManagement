@@ -54,16 +54,16 @@
 
 
 
-echo "<table class='uk-table'><caption>會員資料</caption><thead>";
-echo "<tr><th>ID</th><th>UserName</th><th>Email</th><th>Password</th><th>Admin</th><th>RegisterDate</th></tr></thead><tbody>";
+echo "<table class='uk-table'><caption>客戶資料</caption><thead>";
+echo "<tr><th>ID</th><th>客戶名稱</th><th>信箱</th><th>聯絡電話</th><th>行動電話</th><th>地址</th><th>RegisterDate</th></tr></thead><tbody>";
         if($_SESSION['email'] != null)
         {        
                 //將資料庫裡的所有會員資料顯示在畫面上
-                $sql = "SELECT * FROM member";
+                $sql = "SELECT * FROM customer";
                 $result = mysql_query($sql);
                 while( $row = mysql_fetch_row($result))
                 {
-                   echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td></tr>";
+                   echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td><td>$row[6]</td></tr>";
                 }
         }
         else
