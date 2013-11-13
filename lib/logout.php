@@ -4,6 +4,9 @@
 	//將session清空
 	unset($_SESSION['email']);
 	unset($_SESSION['loginName']);
-	echo '登出中......';
-	echo '<meta http-equiv=REFRESH CONTENT=1;url=../index.php>';
+
+	$url = "../index.php";
+	echo "<script type='text/javascript'>";
+	echo "window.location.href='$url'";
+	echo "</script>";
 ?>

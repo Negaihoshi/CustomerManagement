@@ -46,32 +46,37 @@
     <div id="container">
         
         <?php
-        include("connect_db.php");
+            include("connect_db.php");
+            $sql = "SELECT * FROM customer";
+            $result = mysql_query($sql);
+            $JsonTable = array();
+            while($row = mysql_fetch_array($result)){
+                $JsonTable["$row[0]"] = array("name"=>"$row[1]", "email"=>"$row[2]", "tel"=> "$row[3]", "mobile"=>"$row[4]" ,"address"=>"$row[5]");
+            }
+            json_encode($JsonTable/*, JSON_UNESCAPED_UNICODE*/);
+        
+        
 
-        //此判斷為判定觀看此頁有沒有權限
-        //說不定是路人或不相關的使用者
-        //因此要給予排除
-
-
-
-echo "<table class='uk-table'><caption>客戶資料</caption><thead>";
-echo "<tr><th>ID</th><th>客戶名稱</th><th>信箱</th><th>聯絡電話</th><th>行動電話</th><th>地址</th><th>RegisterDate</th></tr></thead><tbody>";
-        if($_SESSION['email'] != null)
-        {        
-                //將資料庫裡的所有會員資料顯示在畫面上
-                $sql = "SELECT * FROM customer";
-                $result = mysql_query($sql);
-                while( $row = mysql_fetch_row($result))
-                {
-                   echo "<tr><td>$row[0]</td><td><a href=''>$row[1]</a></td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td><td>$row[6]</td></tr>";
-                }
-        }
-        else
-        {
-                echo '您無權限觀看此頁面!';
-             //   echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
-        }
-        echo "</tbody></table>";
+        
+            //$json = json_decode($JsonTable);
+            echo "<table class='uk-table'><caption>客戶資料</caption><thead>";
+            echo "<tr><th>ID</th><th>客戶名稱</th><th>信箱</th><th>聯絡電話</th><th>行動電話</th><th>地址</th><th>RegisterDate</th></tr></thead><tbody>";
+            if($_SESSION['email'] != null)
+            {        
+                    //將資料庫裡的所有會員資料顯示在畫面上
+                    $sql = "SELECT * FROM customer";
+                    $result = mysql_query($sql);
+                    while( $row = mysql_fetch_row($result))
+                    {
+                       echo "<tr><td>$row[0]</td><td><a href=''>$row[1]</a></td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td><td>$row[6]</td></tr>";
+                    }
+            }
+            else
+            {
+                    echo '您無權限觀看此頁面!';
+                 //   echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
+            }
+            echo "</tbody></table>";
         ?>
 
     </div>

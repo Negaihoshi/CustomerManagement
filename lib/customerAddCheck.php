@@ -16,12 +16,20 @@ if($name != null && $email != null && $phone!= null &&  $mobile != null && $addr
     $sql = "insert into customer (name, email, phone, mobile, address) values ('$name', '$email', '$phone', '$mobile', '$address')";
     if(mysql_query($sql))
     {
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=customerList.php>';
+
+        $url = "customerList.php";
+        echo "<script type='text/javascript'>";
+        echo "window.location.href='$url'";
+        echo "</script>";
     }
     else{
         echo '新增失敗!';
         die('Error: ' . mysql_error());
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=addCustomer.php>';
+
+        $url = "addCustomer.php";
+        echo "<script type='text/javascript'>";
+        echo "window.location.href='$url'";
+        echo "</script>";
     }  
 }
 else{

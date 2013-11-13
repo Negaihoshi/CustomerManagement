@@ -22,7 +22,7 @@
 
     <link href="../css/uikit.gradient.min.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
     <link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -55,13 +55,17 @@
                         <input type="email"  class="uk-form-width-medium" id="email" name="email">
 
                         <label class="uk-form-label" for="phone">聯絡電話</label>
-                        <input type="text"  class="uk-form-width-medium" id="phone" name="phone">
+                        <input type="number"  class="uk-form-width-medium" id="phone" name="phone">
 
                         <label class="uk-form-label" for="mobile">行動電話</label>
-                        <input type="text"  class="uk-form-width-medium" id="mobile" name="mobile">
+                        <input type="number"  class="uk-form-width-medium" id="mobile" name="mobile">
 
                         <label class="uk-form-label" for="address">地址</label>
                         <input type="text"  class="uk-form-width-medium" id="address" name="address">
+                        
+                        <script>
+
+                        </script>
                 </fieldset>
                 <button class="uk-button" type="submit">新增</button>
             </form>

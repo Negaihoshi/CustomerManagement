@@ -20,7 +20,11 @@
 		$_SESSION['email'] = $email;
 		$_SESSION['loginName'] = $row[1];
 		echo '登入成功!';
-		echo '<meta http-equiv=REFRESH CONTENT=1;url=member.php>';
+
+		$url = "member.php";
+		echo "<script type='text/javascript'>";
+		echo "window.location.href='$url'";
+		echo "</script>";
 	}
 	else{
 		echo '登入失敗!';
