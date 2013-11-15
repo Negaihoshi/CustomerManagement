@@ -8,7 +8,7 @@
     }
 ?>
 <!doctype html>
-<html lang="zh-tw" ng-app>
+<html lang="zh-tw" ng-app="CustomerList">
 
 <head>
     <meta charset="UTF-8">
@@ -21,11 +21,12 @@
     <!-- <link rel="shortcut icon" href="../../assets/ico/favicon.png"> -->
 
     <link href="../css/uikit.gradient.min.css" rel="stylesheet">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc3/angular.min.js"></script>
     <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script src="../js/customerList.js"></script>
 </head>
-<body>
+<body ng-controller="SearchCtrl">
     <nav class="uk-navbar">
         <ul class="uk-navbar-nav">
             <li class="uk-active"><a href="../index.php">客戶管理系統</a></li>
@@ -42,43 +43,48 @@
         </div>
     </nav>
 
-
     <div id="container">
-        
-        <?php
-            include("connect_db.php");
-            $sql = "SELECT * FROM customer";
-            $result = mysql_query($sql);
-            $JsonTable = array();
-            while($row = mysql_fetch_array($result)){
-                $JsonTable["$row[0]"] = array("name"=>"$row[1]", "email"=>"$row[2]", "tel"=> "$row[3]", "mobile"=>"$row[4]" ,"address"=>"$row[5]");
-            }
-            json_encode($JsonTable/*, JSON_UNESCAPED_UNICODE*/);
-        
-        
-
-        
-            //$json = json_decode($JsonTable);
-            echo "<table class='uk-table'><caption>客戶資料</caption><thead>";
-            echo "<tr><th>ID</th><th>客戶名稱</th><th>信箱</th><th>聯絡電話</th><th>行動電話</th><th>地址</th><th>RegisterDate</th></tr></thead><tbody>";
-            if($_SESSION['email'] != null)
-            {        
-                    //將資料庫裡的所有會員資料顯示在畫面上
-                    $sql = "SELECT * FROM customer";
-                    $result = mysql_query($sql);
-                    while( $row = mysql_fetch_row($result))
-                    {
-                       echo "<tr><td>$row[0]</td><td><a href=''>$row[1]</a></td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td><td>$row[6]</td></tr>";
-                    }
-            }
-            else
-            {
-                    echo '您無權限觀看此頁面!';
-                 //   echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
-            }
-            echo "</tbody></table>";
-        ?>
-
+        <form class="uk-form">
+            <fieldset>
+                <legend>搜尋</legend>
+                <div class="uk-form-row">
+                    <form class="uk-search" data-uk-search>
+                        <input class="uk-search-field" ng-model="query" type="search" placeholder="search...">
+                    </form>
+                </div>
+                <div class="uk-form-row">
+                    <select ng-model="orderProp">
+                        <option value="name">Alphabetical</option>
+                        <option value="RegisterDate">Newest</option>
+                    </select>
+                </div>
+            </fieldset>
+        </form>
+        <table class="uk-table">
+            <caption>客戶資料</caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>客戶名稱</th>
+                    <th>信箱</th>
+                    <th>聯絡電話</th>
+                    <th>行動電話</th>
+                    <th>地址</th>
+                    <th>RegisterDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="customer in customers | filter:query | orderBy:orderProp">
+                    <td>{{customer.id}}</td>
+                    <td><a href="">{{customer.name}}</a></td>
+                    <td>{{customer.email}}</td>
+                    <td>{{customer.tel}}</td>
+                    <td>{{customer.mobile}}</td>
+                    <td>{{customer.address}}</td>
+                    <td>{{customer.RegisterDate}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     
     <footer id="footer">
