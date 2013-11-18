@@ -46,13 +46,10 @@
     <div id="container">
         <form class="uk-form">
             <fieldset>
-                <legend>搜尋</legend>
                 <div class="uk-form-row">
                     <form class="uk-search" data-uk-search>
-                        <input class="uk-search-field" ng-model="query" type="search" placeholder="search...">
+                        <input class="uk-search-field" ng-model="query" type="search" placeholder="搜尋...">
                     </form>
-                </div>
-                <div class="uk-form-row">
                     <select ng-model="orderProp">
                         <option value="name">Alphabetical</option>
                         <option value="RegisterDate">Newest</option>
@@ -70,7 +67,7 @@
                     <th>聯絡電話</th>
                     <th>行動電話</th>
                     <th>地址</th>
-                    <th>RegisterDate</th>
+                    <th>登錄時間</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,7 +78,7 @@
                     <td>{{customer.tel}}</td>
                     <td>{{customer.mobile}}</td>
                     <td>{{customer.address}}</td>
-                    <td>{{customer.RegisterDate}}</td>
+                    <td>{{customer.addDate}}</td>
                 </tr>
             </tbody>
         </table>
