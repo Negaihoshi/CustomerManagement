@@ -24,6 +24,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
     <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <script src="../js/uikit.min.js"></script>
 </head>
 <body>
     <nav class="uk-navbar">
@@ -35,9 +36,23 @@
 
         <div class="uk-navbar-flip">
             <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="member.php"><?$loginName = $_SESSION['loginName'];echo "$loginName";?></a></li>
-                <li><a href="memberEdit.php">修改會員資料</a></li>
-                <li><a href="logout.php">登出</a></li>
+                <li class="uk-active"><a href="member.php"></a></li>
+                
+                <li class="uk-parent" data-uk-dropdown="">
+                    <a href="member.php"><?$loginName = $_SESSION['loginName'];echo "$loginName";?> <i class="uk-icon-caret-down"></i></a>
+
+                    <div style="" class="uk-dropdown uk-dropdown-navbar">
+                        <ul class="uk-nav uk-nav-navbar">
+                            <li><a href="memberEdit.php">修改會員資料</a></li>
+                            <li><a href="#">Another item</a></li>
+                            <li class="uk-nav-header">Header</li>
+                            <li><a href="#">Item</a></li>
+                            <li><a href="#">Another item</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="logout.php">登出</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
@@ -63,9 +78,6 @@
                         <label class="uk-form-label" for="address">地址</label>
                         <input type="text"  class="uk-form-width-medium" id="address" name="address">
                         
-                        <script>
-
-                        </script>
                 </fieldset>
                 <button class="uk-button" type="submit">新增</button>
             </form>

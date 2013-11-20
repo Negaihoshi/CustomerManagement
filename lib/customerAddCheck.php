@@ -6,6 +6,7 @@
 //只要此頁面上有用到連接MySQL就要include它
 include("connect_db.php");
 
+$userID = $_SESSION['userID'];
 $name = $_POST['customerName'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
@@ -13,7 +14,7 @@ $mobile =$_POST['mobile'];
 $address =$_POST['address'];
 
 if($name != null && $email != null && $phone!= null &&  $mobile != null && $address != null){
-    $sql = "insert into customer (name, email, phone, mobile, address) values ('$name', '$email', '$phone', '$mobile', '$address')";
+    $sql = "insert into customer (mid, name, email, phone, mobile, address) values ('$userID','$name', '$email', '$phone', '$mobile', '$address')";
     if(mysql_query($sql))
     {
 

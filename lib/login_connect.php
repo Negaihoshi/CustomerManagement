@@ -19,6 +19,7 @@
 		//將帳號寫入session，方便驗證使用者身份
 		$_SESSION['email'] = $email;
 		$_SESSION['loginName'] = $row[1];
+		$_SESSION['userID'] = $row[0];
 		echo '登入成功!';
 
 		$url = "member.php";

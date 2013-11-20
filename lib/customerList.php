@@ -25,6 +25,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
     <script src="../js/customerList.js"></script>
+    <script src="../js/uikit.min.js"></script>
 </head>
 <body ng-controller="SearchCtrl">
     <nav class="uk-navbar">
@@ -36,10 +37,21 @@
 
         <div class="uk-navbar-flip">
             <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="member.php"><?$loginName = $_SESSION['loginName'];echo "$loginName";?></a></li>
-                <li><a href="memberEdit.php">修改會員資料</a></li>
-                <li><a href="logout.php">登出</a></li>
-            </ul>
+                <li class="uk-parent" data-uk-dropdown="">
+                    <a href="member.php"><?$loginName = $_SESSION['loginName'];echo "$loginName";?> <i class="uk-icon-caret-down"></i></a>
+
+                    <div style="" class="uk-dropdown uk-dropdown-navbar">
+                        <ul class="uk-nav uk-nav-navbar">
+                            <li><a href="memberEdit.php">修改會員資料</a></li>
+                            <li><a href="#">Another item</a></li>
+                            <li class="uk-nav-header">Header</li>
+                            <li><a href="#">Item</a></li>
+                            <li><a href="#">Another item</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="logout.php">登出</a></li>
+                        </ul>
+                    </div>
+                </li>
         </div>
     </nav>
 
@@ -62,6 +74,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>填寫人 ID</th>
                     <th>客戶名稱</th>
                     <th>信箱</th>
                     <th>聯絡電話</th>
@@ -72,8 +85,9 @@
             </thead>
             <tbody>
                 <tr ng-repeat="customer in customers | filter:query | orderBy:orderProp">
-                    <td>{{customer.id}}</td>
-                    <td><a href="">{{customer.name}}</a></td>
+                    <td>{{customer.cid}}</td>
+                    <td>{{customer.mid}}</td>
+                    <td><a ng-href="{{customer.cid}}">{{customer.name}}</a></td>
                     <td>{{customer.email}}</td>
                     <td>{{customer.tel}}</td>
                     <td>{{customer.mobile}}</td>

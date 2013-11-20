@@ -5,7 +5,8 @@
     $result = mysql_query($sql);
     $JsonTable = array();
     while($row = mysql_fetch_array($result)){
-        $JsonTable[] = array("id"=>"$row[0]","name"=>"$row[1]", "email"=>"$row[2]", "tel"=> "$row[3]", "mobile"=>"$row[4]" ,"address"=>"$row[5]", "addDate"=>"$row[6]");
+        $JsonTable[] = array("cid"=>"$row[0]","mid"=>"$row[1]","name"=>"$row[2]", "email"=>"$row[3]", "tel"=> "$row[4]", 
+            "mobile"=>"$row[5]" ,"address"=>"$row[6]", "addDate"=>"$row[7]");
     }
     echo json_encode($JsonTable, JSON_UNESCAPED_UNICODE);
 ?>

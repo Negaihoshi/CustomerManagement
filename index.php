@@ -15,7 +15,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script scr="js/uikit.min.js"></script>
+    <script src="js/uikit.min.js"></script>
 </head>
 <body>
     <nav class="uk-navbar">
@@ -30,6 +30,21 @@
                 <li><a href='lib/member.php'>主控台</a></li>
                 <li><a href='lib/login.php'>登入</a></li>
                 <li><a href='lib/register.php'>註冊</a></li>
+                <li class="uk-parent" data-uk-dropdown="">
+                    <a href="">Parent <i class="uk-icon-caret-down"></i></a>
+
+                     <div style="" class="uk-dropdown uk-dropdown-navbar">
+                        <ul class="uk-nav uk-nav-navbar">
+                            <li><a href="#">Item</a></li>
+                            <li><a href="#">Another item</a></li>
+                            <li class="uk-nav-header">Header</li>
+                            <li><a href="#">Item</a></li>
+                            <li><a href="#">Another item</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="#">Separated item</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
