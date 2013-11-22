@@ -31,7 +31,7 @@
         <ul class="uk-navbar-nav">
             <li class="uk-active"><a href="../index.php">客戶管理系統</a></li>
             <li><a href="customerList.php">客戶管理</a></li>
-            <li class="uk-parent"><a href="addCustomer.php">新客戶</a></li>
+            <li class="uk-parent"><a href="customerAdd.php">新客戶</a></li>
         </ul>
 
         <div class="uk-navbar-flip">
@@ -56,13 +56,51 @@
             </ul>
         </div>
     </nav>
+    
+    <script>
+        function AddCustomer(){
+            var inputList[] = {customerName,email,phone,mobile,address};
+            var labelList[] = {customerNameLabel,emailLabel,phoneLabel,mobileLable,addressLabel}
+            var inputTypeList[] = {text,email,number}
+            customerNameLabel = document.createElement('label');
+            customerName = document.createElement('input');
+            emailLabel = document.createElement('label');
+            email = document.createElement('input');
+            phoneLabel = document.createElement('label');
+            phone = document.createElement('input');
+            mobileLabel = document.createElement('label');
+            mobile = document.createElement('input');
+            addressLabel = document.createElement('label');
+            address = document.createElement('input');
 
+            customerName.type = inputTypeList[0];
+            email.type = inputTypeList[1];
+            phone.type = inputTypeList[2];
+            mobile.type = inputTypeList[2];
+            address.type = inputTypeList[0];
+
+            for (var i = 0 ; i <= inputList.length; i++){
+                labelList[i].setAttribute('for', 'customerName');
+                labelList[i].setAttribute('class', 'uk-form-label');
+                inputList[i].class = 'uk-form-width-medium';
+                inputList[i].id = inputList[i];
+                inputList[i].name = inputList[i];
+            }
+            br   = document.createElement('br');
+            for (var i = 0 ; i <= inputList.length; i++){
+                document.getElementById('customerInput').appendChild(inputTypeList[i]);
+                document.getElementById('customerInput').appendChild(inputList[i]);
+                document.getElementById('customerInput').appendChild(br);
+            }
+        }
+    </script>
 
     <div id="container">
         <div clss="uk-grid">
             <form class="uk-form" name="editForm" method="post" action="customerAddCheck.php">
                 <fieldset>
                     <legend>會員資料</legend>
+                    <div id="customerInput">
                         <label class="uk-form-label" for="customerName">客戶名稱</label>
                         <input type="text"  class="uk-form-width-medium" id="customerName" name="customerName" required autofucus>
 
@@ -78,7 +116,9 @@
                         <label class="uk-form-label" for="address">地址</label>
                         <input type="text"  class="uk-form-width-medium" id="address" name="address">
                         
+                    </div>
                 </fieldset>
+                <input type="button" class="uk-button" value="下一筆" onclick="AddCustomer()">
                 <button class="uk-button" type="submit">新增</button>
             </form>
         </div>

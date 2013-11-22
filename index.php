@@ -27,24 +27,18 @@
 
         <div class="uk-navbar-flip">
             <ul class="uk-navbar-nav">
-                <li><a href='lib/member.php'>主控台</a></li>
-                <li><a href='lib/login.php'>登入</a></li>
-                <li><a href='lib/register.php'>註冊</a></li>
-                <li class="uk-parent" data-uk-dropdown="">
-                    <a href="">Parent <i class="uk-icon-caret-down"></i></a>
+                <?  session_start();
+                    //if ($_SESSION['email'] != null || session_is_registered($_SESSION['email']) == false ) {
+                        echo "<li><a href='lib/member.php'>主控台</a></li>";
+                        echo "<li><a href='lib/login.php'>登入</a></li>";
+                        echo "<li><a href='lib/register.php'>註冊</a></li>";
+                    //}
+                    //else {
+                        //echo "<li><a href='lib/member.php'>主控台</a></li>";
+                        echo "<li><a href='lib/logout.php'>登出</a></li>";
+                    //}
+                ?>
 
-                     <div style="" class="uk-dropdown uk-dropdown-navbar">
-                        <ul class="uk-nav uk-nav-navbar">
-                            <li><a href="#">Item</a></li>
-                            <li><a href="#">Another item</a></li>
-                            <li class="uk-nav-header">Header</li>
-                            <li><a href="#">Item</a></li>
-                            <li><a href="#">Another item</a></li>
-                            <li class="uk-nav-divider"></li>
-                            <li><a href="#">Separated item</a></li>
-                        </ul>
-                    </div>
-                </li>
             </ul>
         </div>
     </nav>

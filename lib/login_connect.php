@@ -5,13 +5,11 @@
 	include("connect_db.php");
 	$email = $_POST['email'];
 	$password = $_POST['password'];
-	echo "$email<br>";
-	echo "$password<br>";
 	$sql = "SELECT * FROM member where email = '$email'";
 	$result = mysql_query($sql);
 	$row = mysql_fetch_row($result);
 	
-	echo "$row[0] . $row[1] . $row[2] . $row[3] . $row[4]";
+	//echo "$row[0] . $row[1] . $row[2] . $row[3] . $row[4]";
 
 	//判斷帳號與密碼是否為空白
 	//以及MySQL資料庫裡是否有這個會員

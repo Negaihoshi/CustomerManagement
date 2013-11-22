@@ -32,7 +32,7 @@
         <ul class="uk-navbar-nav">
             <li class="uk-active"><a href="../index.php">客戶管理系統</a></li>
             <li><a href="customerList.php">客戶管理</a></li>
-            <li class="uk-parent"><a href="addCustomer.php">新客戶</a></li>
+            <li class="uk-parent"><a href="customerAdd.php">新客戶</a></li>
         </ul>
 
         <div class="uk-navbar-flip">
@@ -87,7 +87,7 @@
                 <tr ng-repeat="customer in customers | filter:query | orderBy:orderProp">
                     <td>{{customer.cid}}</td>
                     <td>{{customer.mid}}</td>
-                    <td><a ng-href="{{customer.cid}}">{{customer.name}}</a></td>
+                    <td><a ng-href="customerDetail.php?cid={{customer.cid}}">{{customer.name}}</a></td>
                     <td>{{customer.email}}</td>
                     <td>{{customer.tel}}</td>
                     <td>{{customer.mobile}}</td>
