@@ -12,31 +12,40 @@ $email = $_POST['email'];
 $phone = $_POST['phone'];
 $mobile =$_POST['mobile'];
 $address =$_POST['address'];
+/*
+foreach($name as $key => $val){
+    echo $name[$key].",".$email[$key].",".$phone[$key].",".$mobile[$key].",".$address[$key]."<br>";
+}
+*/
 
 if($name != null && $email != null && $phone!= null &&  $mobile != null && $address != null){
-    $sql = "insert into customer (mid, name, email, phone, mobile, address) values ('$userID','$name', '$email', '$phone', '$mobile', '$address')";
-    if(mysql_query($sql))
-    {
+    //$sql = "insert into customer (mid, name, email, phone, mobile, address) values ('$userID','$name', '$email', '$phone', '$mobile', '$address')";
+    foreach($name as $key => $val){
+        $sql = "insert into customer (mid, name, email, phone, mobile, address) values ('$userID','$name[$key]', '$email[$key]', '$phone[$key]', '$mobile[$key]', '$address[$key]')";
+        if(mysql_query($sql)){
 
-        $url = "customerList.php";
-        echo "<script type='text/javascript'>";
-        echo "window.location.href='$url'";
-        echo "</script>";
+            $url = "customerList.php";
+            echo "<script type='text/javascript'>";
+            echo "window.location.href='$url'";
+            echo "</script>";
+        }
+        else{
+            echo '新增失敗!';
+            die('Error: ' . mysql_error());
+
+            $url = "addCustomer.php";
+            echo "<script type='text/javascript'>";
+            echo "window.location.href='$url'";
+            echo "</script>";
+        }      
     }
-    else{
-        echo '新增失敗!';
-        die('Error: ' . mysql_error());
-
-        $url = "addCustomer.php";
-        echo "<script type='text/javascript'>";
-        echo "window.location.href='$url'";
-        echo "</script>";
-    }  
+    
 }
 else{
     //echo '您無權限觀看此頁面!';
     echo "030";
     //echo '<meta http-equiv=REFRESH CONTENT=2;url=register.php>';
 }
+
 ?>
 

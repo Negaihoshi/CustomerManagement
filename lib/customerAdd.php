@@ -59,69 +59,78 @@
     
     <script>
         function AddCustomer(){
-            var inputList[] = {customerName,email,phone,mobile,address};
-            var labelList[] = {customerNameLabel,emailLabel,phoneLabel,mobileLable,addressLabel}
-            var inputTypeList[] = {text,email,number}
-            customerNameLabel = document.createElement('label');
-            customerName = document.createElement('input');
-            emailLabel = document.createElement('label');
-            email = document.createElement('input');
-            phoneLabel = document.createElement('label');
-            phone = document.createElement('input');
-            mobileLabel = document.createElement('label');
-            mobile = document.createElement('input');
-            addressLabel = document.createElement('label');
-            address = document.createElement('input');
 
-            customerName.type = inputTypeList[0];
-            email.type = inputTypeList[1];
-            phone.type = inputTypeList[2];
-            mobile.type = inputTypeList[2];
-            address.type = inputTypeList[0];
+            newTable = document.getElementById('customerTable').insertRow(document.getElementById('customerTable').rows.length-1);
+            tableCustomerName = newTable.insertCell(0);
+            tableEmail = newTable.insertCell(1);
+            tablePhone = newTable.insertCell(2);
+            tableMobile = newTable.insertCell(3);
+            tableAddress = newTable.insertCell(4);
 
-            for (var i = 0 ; i <= inputList.length; i++){
-                labelList[i].setAttribute('for', 'customerName');
-                labelList[i].setAttribute('class', 'uk-form-label');
-                inputList[i].class = 'uk-form-width-medium';
-                inputList[i].id = inputList[i];
-                inputList[i].name = inputList[i];
-            }
-            br   = document.createElement('br');
-            for (var i = 0 ; i <= inputList.length; i++){
-                document.getElementById('customerInput').appendChild(inputTypeList[i]);
-                document.getElementById('customerInput').appendChild(inputList[i]);
-                document.getElementById('customerInput').appendChild(br);
-            }
+            tableCustomerName.innerHTML = "<input type='text' class='uk-form-width-medium' name='customerName[]' />";
+            tableEmail.innerHTML = "<input type='email' class='uk-form-width-medium' name='email[]' />";
+            tablePhone.innerHTML = "<input type='number' class='uk-form-width-medium' name='phone[]' />";
+            tableMobile.innerHTML = "<input type='number' class='uk-form-width-medium' name='mobile[]' />";  
+            tableAddress.innerHTML = "<input type='text' class='uk-form-width-medium' name='address[]' />";  
+        }
+        function RemoveCustomer(){
+
+            TableLength = document.getElementById('customerTable').rows.length-1;
+            if (TableLength > 1) {
+                document.getElementById("customerTable").deleteRow(-1);
+            };
         }
     </script>
 
     <div id="container">
-        <div clss="uk-grid">
-            <form class="uk-form" name="editForm" method="post" action="customerAddCheck.php">
-                <fieldset>
-                    <legend>會員資料</legend>
-                    <div id="customerInput">
-                        <label class="uk-form-label" for="customerName">客戶名稱</label>
-                        <input type="text"  class="uk-form-width-medium" id="customerName" name="customerName" required autofucus>
+        <form class="uk-form" name="editForm" method="post" action="customerAddCheck.php">
+            <table class="uk-table" id="customerTable">
+                <caption>會員資料</caption>
+                <thead>
+                    <tr>
+                        <th>
+                            <label class="uk-form-label" for="customerName">客戶名稱</label>
+                        </th>
+                        <th>
+                            <label class="uk-form-label" for="email">電子信箱</label>
+                        </th>
+                        <th>
+                            <label class="uk-form-label" for="phone">聯絡電話</label>
+                        </th>
+                        <th>
+                            <label class="uk-form-label" for="mobile">行動電話</label>
+                        </th>
+                        <th>
+                            <label class="uk-form-label" for="address">地址</label>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text"  class="uk-form-width-medium" id="customerName" name="customerName[]" required autofucus>
+                        </td>
+                        <td>
+                            <input type="email"  class="uk-form-width-medium" id="email" name="email[]" required>
+                        </td>
+                        <td>
+                            <input type="number"  class="uk-form-width-medium" id="phone" name="phone[]" required>
+                        </td>
+                        <td>
+                            <input type="number"  class="uk-form-width-medium" id="mobile" name="mobile[]" required>
+                        </td>
+                        <td>
+                            <input type="text"  class="uk-form-width-medium" id="address" name="address[]" required>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="button" class="uk-button uk-button-primary" value="下一筆" onclick="AddCustomer()">
+            <input type="button" class="uk-button uk-button-danger" value="刪除一筆" onclick="RemoveCustomer()">
+            <button class="uk-button uk-button-success" type="submit">新增</button>
 
-                        <label class="uk-form-label" for="email">電子信箱</label>
-                        <input type="email"  class="uk-form-width-medium" id="email" name="email">
+        </form>
 
-                        <label class="uk-form-label" for="phone">聯絡電話</label>
-                        <input type="number"  class="uk-form-width-medium" id="phone" name="phone">
-
-                        <label class="uk-form-label" for="mobile">行動電話</label>
-                        <input type="number"  class="uk-form-width-medium" id="mobile" name="mobile">
-
-                        <label class="uk-form-label" for="address">地址</label>
-                        <input type="text"  class="uk-form-width-medium" id="address" name="address">
-                        
-                    </div>
-                </fieldset>
-                <input type="button" class="uk-button" value="下一筆" onclick="AddCustomer()">
-                <button class="uk-button" type="submit">新增</button>
-            </form>
-        </div>
     </div>
     
     <footer id="footer">
