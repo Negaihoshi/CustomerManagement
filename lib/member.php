@@ -36,8 +36,6 @@
 
         <div class="uk-navbar-flip">
             <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="member.php"></a></li>
-                
                 <li class="uk-parent" data-uk-dropdown="">
                     <a href="member.php"><?$loginName = $_SESSION['loginName'];echo "$loginName";?> <i class="uk-icon-caret-down"></i></a>
 
