@@ -23,12 +23,18 @@ if($username != null && $email != null && $password != null && $repeatPassword !
                 //echo '新增成功!';
                 $_SESSION['email'] = $email;
                 $_SESSION['loginName'] = $username;
-                echo '<meta http-equiv=REFRESH CONTENT=2;url=member.php>';
+                $url = "member.php";
+                echo "<script type='text/javascript'>";
+                echo "window.location.href='$url'";
+                echo "</script>";
         }
         else
         {
                 echo '新增失敗!';
-                echo '<meta http-equiv=REFRESH CONTENT=2;url=../index.php>';
+                $url = "../index.php";
+                echo "<script type='text/javascript'>";
+                echo "window.location.href='$url'";
+                echo "</script>";
         }
 }
 else
@@ -37,7 +43,10 @@ else
         if ($password == $repeatPassword) {
         	echo "驗證密碼失敗，密碼不相同";
         }
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=register.php>';
+                $url = "register.php";
+                echo "<script type='text/javascript'>";
+                echo "window.location.href='$url'";
+                echo "</script>";
 }
 ?>
 
