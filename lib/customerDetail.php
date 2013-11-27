@@ -54,13 +54,14 @@
             include("connect_db.php");
             $email = $_SESSION['email'];
             $cid = $_GET['cid'];
+            $_SESSION['cid'] = '$cid';
             $sql = "SELECT * FROM customer where email = '$email' and cid = '$cid'";
             $result = mysql_query($sql);
             $row = mysql_fetch_row($result);
         ?>
 
-        <form class="uk-form" name="editForm" method="post" action="customerAddCheck.php">
-            <fieldset>
+        <form class="uk-form" name="editForm" method="post" action="customerModify.php>
+            <fieldset>"
                 <legend>客戶資料</legend>
                 <div id="customerInput">
                     <label class="uk-form-label" for="customerName">客戶名稱</label>
@@ -77,11 +78,12 @@
 
                     <label class="uk-form-label" for="address">地址</label>
                     <input type="text"  class="uk-form-width-medium" placeholder="<?echo "$row[6]";?>" id="address" name="address">
+
                 </div>
             </fieldset>
             <button class="uk-button" type="submit">修改</button>
             <button class="uk-button" type="reset">重置</button>
-            <button class="uk-button uk-button-danger" type="submit">刪除</button>
+            <a class="uk-button uk-button-danger" href="">刪除</a>
         </form>
     </div>
     

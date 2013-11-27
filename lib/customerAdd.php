@@ -27,6 +27,7 @@
     <script src="../js/uikit.min.js"></script>
 </head>
 <body>
+    <div id="header">
     <nav class="uk-navbar">
         <ul class="uk-navbar-nav">
             <li class="uk-active"><a href="../index.php">客戶管理系統</a></li>
@@ -56,33 +57,40 @@
             </ul>
         </div>
     </nav>
-    
+    </div>
     <script>
         function AddCustomer(){
 
-            newTable = document.getElementById('customerTable').insertRow(document.getElementById('customerTable').rows.length-1);
+            newTable = document.getElementById('customerTable').insertRow(document.getElementById('customerTable').rows.length);
             tableCustomerName = newTable.insertCell(0);
             tableEmail = newTable.insertCell(1);
             tablePhone = newTable.insertCell(2);
             tableMobile = newTable.insertCell(3);
             tableAddress = newTable.insertCell(4);
 
-            tableCustomerName.innerHTML = "<input type='text' class='uk-form-width-medium' name='customerName[]' />";
-            tableEmail.innerHTML = "<input type='email' class='uk-form-width-medium' name='email[]' />";
-            tablePhone.innerHTML = "<input type='number' class='uk-form-width-medium' name='phone[]' />";
-            tableMobile.innerHTML = "<input type='number' class='uk-form-width-medium' name='mobile[]' />";  
-            tableAddress.innerHTML = "<input type='text' class='uk-form-width-medium' name='address[]' />";  
+            tableCustomerName.innerHTML += "<input type='text' class='uk-form-width-medium' name='customerName[]' />";
+            tableEmail.innerHTML += "<input type='email' class='uk-form-width-medium' name='email[]' />";
+            tablePhone.innerHTML += "<input type='number' class='uk-form-width-medium' name='phone[]' />";
+            tableMobile.innerHTML += "<input type='number' class='uk-form-width-medium' name='mobile[]' />";  
+            tableAddress.innerHTML += "<input type='text' class='uk-form-width-medium' name='address[]' />";  
         }
         function RemoveCustomer(){
 
-            TableLength = document.getElementById('customerTable').rows.length-1;
-            if (TableLength > 1) {
+            TableLength = document.getElementById('customerTable').rows.length;
+            if (TableLength > 2) {
                 document.getElementById("customerTable").deleteRow(-1);
             };
         }
     </script>
 
-    <div id="container">
+    <div id="content" >
+        <div class="uk-grid">
+            <div class="uk-width-1-10">
+                <input type="button" class="uk-button uk-button-primary" value="增加一筆" onclick="AddCustomer()">
+                <br>
+                <input type="button" class="uk-button uk-button-danger" value="刪除一筆" onclick="RemoveCustomer()">
+            </div>
+            <div class="uk-width-7-10">
         <form class="uk-form" name="editForm" method="post" action="customerAddCheck.php">
             <table class="uk-table" id="customerTable">
                 <caption>會員資料</caption>
@@ -125,18 +133,17 @@
                     </tr>
                 </tbody>
             </table>
-            <input type="button" class="uk-button uk-button-primary" value="下一筆" onclick="AddCustomer()">
-            <input type="button" class="uk-button uk-button-danger" value="刪除一筆" onclick="RemoveCustomer()">
             <button class="uk-button uk-button-success" type="submit">新增</button>
 
         </form>
-
+        </div>
     </div>
-    
-    <footer id="footer">
-        <hr>
-        <p>&copy; Company 2013</p>
-    </footer>
+    </div>
+    <div class="tm-footer">
+        <div class="uk-container uk-container-center uk-text-center">
+            <p>&copy; Company 2013</p>
+        </div>
+    </div>
 
     <!-- Javascript -->
     <script scr="../js/uikit.min.js"></script>

@@ -69,7 +69,7 @@
                 </div>
             </fieldset>
         </form>
-        <table class="uk-table">
+        <table class="uk-table uk-table-striped">
             <caption>客戶資料</caption>
             <thead>
                 <tr>
@@ -98,11 +98,12 @@
         </table>
     </div>
     
-    <footer id="footer">
-        <hr>
-        <p>&copy; Company 2013</p>
-    </footer>
-
+    <div class="tm-footer">
+        <div class="uk-container uk-container-center uk-text-center">
+            <p>&copy; Company 2013</p>
+        </div>
+    </div>
+    
     <!-- Javascript -->
     <script scr="../js/uikit.min.js"></script>
 </body>

@@ -1,5 +1,5 @@
 <?
-	include ("/configure.php");
+	include ("configure.php");
 	//echo "starting connect...<br>";
 	// 建立資料庫連線
 	$link = mysql_connect($DB_HOST . ":" . $DB_PORT, $DB_USERNAME, $DB_PASSWORD) or die("connect error");
