@@ -114,16 +114,16 @@
                 <tbody>
                     <tr>
                         <td>
-                            <input type="text"  class="uk-form-width-medium" id="customerName" name="customerName[]" required autofucus>
+                            <input type="text"  class="uk-form-width-small" id="customerName" name="customerName[]" required autofucus>
                         </td>
                         <td>
                             <input type="email"  class="uk-form-width-medium" id="email" name="email[]" required>
                         </td>
                         <td>
-                            <input type="number"  class="uk-form-width-medium" id="phone" name="phone[]" required>
+                            <input type="number"  class="uk-form-width-small" id="phone" name="phone[]" required>
                         </td>
                         <td>
-                            <input type="number"  class="uk-form-width-medium" id="mobile" name="mobile[]" required>
+                            <input type="number"  class="uk-form-width-small" id="mobile" name="mobile[]" required>
                         </td>
                         <td>
                             <input type="text"  class="uk-form-width-medium" id="address" name="address[]" required>
@@ -132,8 +132,11 @@
                 </tbody>
             </table>
             <button class="uk-button uk-button-success" type="submit">新增</button>
-
         </form>
+        <?
+            $cid =$_SESSION['cid'];
+            echo $cid;  
+        ?>
         </div>
     </div>
     </div>

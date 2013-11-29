@@ -8,9 +8,11 @@ $email = $_POST['email'];
 $phone = $_POST['phone'];
 $mobile = $_POST['mobile'];
 $address = $_POST['address'];
-$cid = $_GET['cid'];
-echo "cid = $cid";
 $mid = $_SESSION['userID'];
+$sql = "SELECT * FROM customer where mid = '$mid'";
+$result = mysql_query($sql);
+$row = mysql_fetch_array($result);
+$cid = $row[2];
 
 if($_SESSION['email']!= null)
 {

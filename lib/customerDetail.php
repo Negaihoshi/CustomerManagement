@@ -54,27 +54,26 @@
             include("connect_db.php");
             $email = $_SESSION['email'];
             $cid = $_GET['cid'];
-            $_SESSION['cid'] = '$cid';
             $sql = "SELECT * FROM customer where email = '$email' and cid = '$cid'";
             $result = mysql_query($sql);
             $row = mysql_fetch_row($result);
         ?>
 
-        <form class="uk-form" name="editForm" method="post" action="customerModify.php>
-            <fieldset>"
+        <form class="uk-form" name="editForm" method="post" action="customerModify.php">
+            <fieldset>
                 <legend>客戶資料</legend>
                 <div id="customerInput">
                     <label class="uk-form-label" for="customerName">客戶名稱</label>
-                    <input type="text"  class="uk-form-width-medium" placeholder="<?echo "$row[2]";?>" id="customerName" name="customerName" required autofucus>
+                    <input type="text"  class="uk-form-width-small" placeholder="<?echo "$row[2]";?>" id="customerName" name="customerName" required autofucus>
 
                     <label class="uk-form-label" for="email">電子信箱</label>
                     <input type="email"  class="uk-form-width-medium" placeholder="<?echo "$row[3]";?>" id="email" name="email">
 
                     <label class="uk-form-label" for="phone">聯絡電話</label>
-                    <input type="number"  class="uk-form-width-medium" placeholder="<?echo "$row[4]";?>" id="phone" name="phone">
+                    <input type="number"  class="uk-form-width-small" placeholder="<?echo "$row[4]";?>" id="phone" name="phone">
 
                     <label class="uk-form-label" for="mobile">行動電話</label>
-                    <input type="number"  class="uk-form-width-medium" placeholder="<?echo "$row[5]";?>" id="mobile" name="mobile">
+                    <input type="number"  class="uk-form-width-small" placeholder="<?echo "$row[5]";?>" id="mobile" name="mobile">
 
                     <label class="uk-form-label" for="address">地址</label>
                     <input type="text"  class="uk-form-width-medium" placeholder="<?echo "$row[6]";?>" id="address" name="address">

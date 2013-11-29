@@ -12,16 +12,15 @@ $email = $_POST['email'];
 $phone = $_POST['phone'];
 $mobile =$_POST['mobile'];
 $address =$_POST['address'];
-/*
-foreach($name as $key => $val){
-    echo $name[$key].",".$email[$key].",".$phone[$key].",".$mobile[$key].",".$address[$key]."<br>";
+if (isset($cid)==false) {
+    $cid = 1;
 }
-*/
 
 if($name != null && $email != null && $phone!= null &&  $mobile != null && $address != null){
-    //$sql = "insert into customer (mid, name, email, phone, mobile, address) values ('$userID','$name', '$email', '$phone', '$mobile', '$address')";
+    
     foreach($name as $key => $val){
-        $sql = "insert into customer (mid, name, email, phone, mobile, address) values ('$userID','$name[$key]', '$email[$key]', '$phone[$key]', '$mobile[$key]', '$address[$key]')";
+        $sql = "insert into customer (cid, mid, name, email, phone, mobile, address) values ('$cid', '$userID','$name[$key]', '$email[$key]', '$phone[$key]', '$mobile[$key]', '$address[$key]')";
+
         if(mysql_query($sql)){
 
             $url = "customerList.php";
