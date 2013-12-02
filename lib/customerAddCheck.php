@@ -18,11 +18,12 @@ $result = mysql_query($sql);
 while($row = mysql_fetch_array($result)){
     $cid = $row[0];
 }
-$cid+=1;
+
 
 if($name != null && $email != null && $phone!= null &&  $mobile != null && $address != null){
     
     foreach($name as $key => $val){
+        $cid+=1;
         $sql = "insert into customer (cid, mid, name, email, phone, mobile, address) values ('$cid', '$userID','$name[$key]', '$email[$key]', '$phone[$key]', '$mobile[$key]', '$address[$key]')";
 
         if(mysql_query($sql)){

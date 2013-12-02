@@ -1,7 +1,8 @@
 <?php
     include("connect_db.php");
-    
-    $sql = "SELECT * FROM customer";
+    session_start();
+    $mid = $_SESSION['userID'];
+    $sql = "SELECT * FROM customer where mid = '$mid'";
     $result = mysql_query($sql);
     $JsonTable = array();
     $cidnumber =0;
