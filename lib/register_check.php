@@ -20,9 +20,14 @@ if($username != null && $email != null && $password != null && $repeatPassword !
         $sql = "insert into member (username, email, password) values ('$username', '$email', '$password')";
         if(mysql_query($sql))
         {
-                //echo '新增成功!';
+                $sql = "SELECT * FROM member";
+                $result = mysql_query($sql);
+                while($row = mysql_fetch_array($result)){
+                    $mid = $row[0];
+                }
                 $_SESSION['email'] = $email;
                 $_SESSION['loginName'] = $username;
+                $_SESSION['userID'] = $mid;
                 $url = "member.php";
                 echo "<script type='text/javascript'>";
                 echo "window.location.href='$url'";

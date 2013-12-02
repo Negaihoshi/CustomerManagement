@@ -133,10 +133,7 @@
             </table>
             <button class="uk-button uk-button-success" type="submit">新增</button>
         </form>
-        <?
-            $cid =$_SESSION['cid'];
-            echo $cid;  
-        ?>
+
         </div>
     </div>
     </div>

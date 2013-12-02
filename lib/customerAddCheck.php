@@ -12,9 +12,13 @@ $email = $_POST['email'];
 $phone = $_POST['phone'];
 $mobile =$_POST['mobile'];
 $address =$_POST['address'];
-if (isset($cid)==false) {
-    $cid = 1;
+
+$sql = "SELECT * FROM customer";
+$result = mysql_query($sql);
+while($row = mysql_fetch_array($result)){
+    $cid = $row[0];
 }
+$cid+=1;
 
 if($name != null && $email != null && $phone!= null &&  $mobile != null && $address != null){
     
@@ -32,7 +36,7 @@ if($name != null && $email != null && $phone!= null &&  $mobile != null && $addr
             echo '新增失敗!';
             die('Error: ' . mysql_error());
 
-            $url = "addCustomer.php";
+            $url = "customerAdd.php";
             echo "<script type='text/javascript'>";
             echo "window.location.href='$url'";
             echo "</script>";
