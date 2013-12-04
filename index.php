@@ -21,8 +21,6 @@
     <nav class="uk-navbar">
         <ul class="uk-navbar-nav">
             <li class="uk-active"><a href="index.php">客戶管理系統</a></li>
-            <li><a href="">測試1</a></li>
-            <li class="uk-parent"><a href="">測試2</a></li>
         </ul>
 
         <div class="uk-navbar-flip">
@@ -44,14 +42,15 @@
 
 
     <div id="content">
-        <p>123</p>
-    </div>
-    
-    <footer id="footer">
-        <hr>
-        <p>&copy; Company 2013</p>
-    </footer>
 
+    </div>
+    <!--
+    <div class="tm-footer">
+        <div class="uk-container uk-container-center uk-text-center">
+            <p>&copy; Company 2013</p>
+        </div>
+    </div>
+    -->
 </body>
 
 </html>

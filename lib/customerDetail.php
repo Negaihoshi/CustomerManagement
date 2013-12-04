@@ -52,13 +52,14 @@
     <div id="container">
         <?
             include("connect_db.php");
-            $email = $_SESSION['email'];
             $cid = $_GET['cid'];
-            $sql = "SELECT * FROM customer where email = '$email' and cid = '$cid'";
+            $mid = $_SESSION['userID'];
+            $_SESSION['cid'] = $cid;
+            $sql = "SELECT * FROM customer where cid = '$cid' and mid = '$mid'";
             $result = mysql_query($sql);
             $row = mysql_fetch_row($result);
         ?>
-
+        
         <form class="uk-form" name="editForm" method="post" action="customerModify.php">
             <fieldset>
                 <legend>客戶資料</legend>
@@ -82,7 +83,7 @@
             </fieldset>
             <button class="uk-button" type="submit">修改</button>
             <button class="uk-button" type="reset">重置</button>
-            <a class="uk-button uk-button-danger" href="">刪除</a>
+            <a class="uk-button uk-button-danger" href="customerDelete.php">刪除</a>
         </form>
     </div>
     

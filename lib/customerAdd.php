@@ -43,10 +43,6 @@
                     <div style="" class="uk-dropdown uk-dropdown-navbar">
                         <ul class="uk-nav uk-nav-navbar">
                             <li><a href="memberEdit.php">修改會員資料</a></li>
-                            <li><a href="#">Another item</a></li>
-                            <li class="uk-nav-header">Header</li>
-                            <li><a href="#">Item</a></li>
-                            <li><a href="#">Another item</a></li>
                             <li class="uk-nav-divider"></li>
                             <li><a href="logout.php">登出</a></li>
                         </ul>
@@ -66,10 +62,10 @@
             tableMobile = newTable.insertCell(3);
             tableAddress = newTable.insertCell(4);
 
-            tableCustomerName.innerHTML += "<input type='text' class='uk-form-width-medium' name='customerName[]' />";
+            tableCustomerName.innerHTML += "<input type='text' class='uk-form-width-small' name='customerName[]' />";
             tableEmail.innerHTML += "<input type='email' class='uk-form-width-medium' name='email[]' />";
-            tablePhone.innerHTML += "<input type='number' class='uk-form-width-medium' name='phone[]' />";
-            tableMobile.innerHTML += "<input type='number' class='uk-form-width-medium' name='mobile[]' />";  
+            tablePhone.innerHTML += "<input type='number' class='uk-form-width-small' name='phone[]' />";
+            tableMobile.innerHTML += "<input type='number' class='uk-form-width-small' name='mobile[]' />";  
             tableAddress.innerHTML += "<input type='text' class='uk-form-width-medium' name='address[]' />";  
         }
         function RemoveCustomer(){
@@ -137,12 +133,13 @@
         </div>
     </div>
     </div>
+    <!--
     <div class="tm-footer">
         <div class="uk-container uk-container-center uk-text-center">
             <p>&copy; Company 2013</p>
         </div>
     </div>
-
+    -->
     <!-- Javascript -->
     <script scr="../js/uikit.min.js"></script>
 </body>

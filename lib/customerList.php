@@ -43,10 +43,6 @@
                     <div style="" class="uk-dropdown uk-dropdown-navbar">
                         <ul class="uk-nav uk-nav-navbar">
                             <li><a href="memberEdit.php">修改會員資料</a></li>
-                            <li><a href="#">Another item</a></li>
-                            <li class="uk-nav-header">Header</li>
-                            <li><a href="#">Item</a></li>
-                            <li><a href="#">Another item</a></li>
                             <li class="uk-nav-divider"></li>
                             <li><a href="logout.php">登出</a></li>
                         </ul>
@@ -63,8 +59,8 @@
                         <input class="uk-search-field" ng-model="query" type="search" placeholder="搜尋...">
                     </form>
                     <select ng-model="orderProp">
-                        <option value="name">Alphabetical</option>
-                        <option value="RegisterDate">Newest</option>
+                        <option value="RegisterDate">最新</option>
+                        <option value="name">按照字母順序</option>
                     </select>
                 </div>
             </fieldset>
@@ -97,13 +93,13 @@
             </tbody>
         </table>
     </div>
-    
+    <!--
     <div class="tm-footer">
         <div class="uk-container uk-container-center uk-text-center">
             <p>&copy; Company 2013</p>
         </div>
     </div>
-    
+    -->
     <!-- Javascript -->
     <script scr="../js/uikit.min.js"></script>
 </body>

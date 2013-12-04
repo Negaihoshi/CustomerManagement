@@ -13,12 +13,12 @@ $phone = $_POST['phone'];
 $mobile =$_POST['mobile'];
 $address =$_POST['address'];
 
-$sql = "SELECT * FROM customer";
+$sql = "SELECT * FROM customer where mid='$userID'";
 $result = mysql_query($sql);
 while($row = mysql_fetch_array($result)){
     $cid = $row[0];
 }
-
+if(isset($cid)==false) $cid=0;
 
 if($name != null && $email != null && $phone!= null &&  $mobile != null && $address != null){
     
@@ -27,7 +27,6 @@ if($name != null && $email != null && $phone!= null &&  $mobile != null && $addr
         $sql = "insert into customer (cid, mid, name, email, phone, mobile, address) values ('$cid', '$userID','$name[$key]', '$email[$key]', '$phone[$key]', '$mobile[$key]', '$address[$key]')";
 
         if(mysql_query($sql)){
-
             $url = "customerList.php";
             echo "<script type='text/javascript'>";
             echo "window.location.href='$url'";
@@ -36,7 +35,6 @@ if($name != null && $email != null && $phone!= null &&  $mobile != null && $addr
         else{
             echo '新增失敗!';
             die('Error: ' . mysql_error());
-
             $url = "customerAdd.php";
             echo "<script type='text/javascript'>";
             echo "window.location.href='$url'";
@@ -47,7 +45,6 @@ if($name != null && $email != null && $phone!= null &&  $mobile != null && $addr
 }
 else{
     //echo '您無權限觀看此頁面!';
-    echo "030";
     //echo '<meta http-equiv=REFRESH CONTENT=2;url=register.php>';
 }
 

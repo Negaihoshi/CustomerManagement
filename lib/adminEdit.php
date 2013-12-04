@@ -8,7 +8,7 @@
     }
 ?>
 <!doctype html>
-<html lang="zh-tw" ng-app>
+<html lang="zh-tw" ng-app="CustomerList">
 
 <head>
     <meta charset="UTF-8">
@@ -21,12 +21,13 @@
     <!-- <link rel="shortcut icon" href="../../assets/ico/favicon.png"> -->
 
     <link href="../css/uikit.gradient.min.css" rel="stylesheet">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc3/angular.min.js"></script>
-    <script src="../js/uikit.min.js"></script>
     <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script src="../js/memberList.js"></script>
+    <script src="../js/uikit.min.js"></script>
 </head>
-<body>
+<body ng-controller="SearchCtrl">
     <nav class="uk-navbar">
         <ul class="uk-navbar-nav">
             <li class="uk-active"><a href="../index.php">客戶管理系統</a></li>
@@ -47,42 +48,46 @@
                         </ul>
                     </div>
                 </li>
-            </ul>
         </div>
     </nav>
 
-
     <div id="container">
-        
-        <?php
-        include("connect_db.php");
-
-        //此判斷為判定觀看此頁有沒有權限
-        //說不定是路人或不相關的使用者
-        //因此要給予排除
-
-
-
-echo "<table class='uk-table'><caption>會員資料</caption><thead>";
-echo "<tr><th>ID</th><th>UserName</th><th>Email</th><th>Password</th><th>Admin</th><th>RegisterDate</th></tr></thead><tbody>";
-        if($_SESSION['email'] != null)
-        {        
-                //將資料庫裡的所有會員資料顯示在畫面上
-                $sql = "SELECT * FROM member";
-                $result = mysql_query($sql);
-                while( $row = mysql_fetch_row($result))
-                {
-                   echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td></tr>";
-                }
-        }
-        else
-        {
-                echo '您無權限觀看此頁面!';
-             //   echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
-        }
-        echo "</tbody></table>";
-        ?>
-
+        <form class="uk-form">
+            <fieldset>
+                <div class="uk-form-row">
+                    <form class="uk-search" data-uk-search>
+                        <input class="uk-search-field" ng-model="query" type="search" placeholder="搜尋...">
+                    </form>
+                    <select ng-model="orderProp">
+                        <option value="RegisterDate">最新</option>
+                        <option value="name">按照字母順序</option>
+                    </select>
+                </div>
+            </fieldset>
+        </form>
+        <table class="uk-table uk-table-striped">
+            <caption>會員資料</caption>
+            <thead>
+                <tr>
+                    <th>mid</th>
+                    <th>使用者名稱</th>
+                    <th>信箱</th>
+                    <th>密碼</th>
+                    <th>管理員</th>
+                    <th>註冊時間</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="customer in customers | filter:query | orderBy:orderProp">
+                    <td>{{customer.mid}}</td>
+                    <td>{{customer.username}}</a></td>
+                    <td>{{customer.email}}</td>
+                    <td>{{customer.password}}</td>
+                    <td>{{customer.admin}}</td>
+                    <td>{{customer.registerDate}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <!--
     <div class="tm-footer">
