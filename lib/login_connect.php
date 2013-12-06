@@ -13,20 +13,30 @@
 
 	//判斷帳號與密碼是否為空白
 	//以及MySQL資料庫裡是否有這個會員
-	if($email != null && $password != null  && $row[3] == $password && ($row[2] == $email||$row[1] == $username)){
+	if($email != null && $password != null && ($row[2] == $email||$row[1] == $username)){
+
+		if(crypt($password,$row[3])==$row[3]){
+
 		//將帳號寫入session，方便驗證使用者身份
 		$_SESSION['email'] = $email;
 		$_SESSION['loginName'] = $row[1];
 		$_SESSION['userID'] = $row[0];
-		echo '登入成功!';
 
 		$url = "member.php";
+		echo "<script type='text/javascript'>";
+		echo "window.location.href='$url'";
+		echo "</script>";
+		}
+		$url = "login.php";
 		echo "<script type='text/javascript'>";
 		echo "window.location.href='$url'";
 		echo "</script>";
 	}
 	else{
 		echo '登入失敗!';
-		echo '<meta http-equiv=REFRESH CONTENT=1;url=login.php>';
+		$url = "login.php";
+		echo "<script type='text/javascript'>";
+		echo "window.location.href='$url'";
+		echo "</script>";
 	}
 ?>
