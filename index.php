@@ -29,7 +29,6 @@
                     if (empty($_SESSION['email']) == true || isset($_SESSION['email']) == false ) {
                         echo "<li><a href='lib/login.php'>登入</a></li>";
                         echo "<li><a href='lib/register.php'>註冊</a></li>";
-                        echo "<li><a href='lib/forget.php'>忘記密碼</a></li>";
                     }
                     else {
                         echo "<li><a href='lib/customerList.php'>主控台</a></li>";
