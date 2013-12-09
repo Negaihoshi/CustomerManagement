@@ -55,10 +55,11 @@
 
     <div id="content">
     </div>
-    <footer id="footer">
+
+    <!--<footer id="footer">
         <hr>
         <p>&copy; Company 2013</p>
-    </footer>
+    </footer>-->
 
     <!-- Javascript -->
     <script scr="js/uikit.min.js"></script>

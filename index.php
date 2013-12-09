@@ -32,7 +32,7 @@
                         echo "<li><a href='lib/forget.php'>忘記密碼</a></li>";
                     }
                     else {
-                        echo "<li><a href='lib/member.php'>主控台</a></li>";
+                        echo "<li><a href='lib/customerList.php'>主控台</a></li>";
                         echo "<li><a href='lib/logout.php'>登出</a></li>";
                     }
                 ?>
