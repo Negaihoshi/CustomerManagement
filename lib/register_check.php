@@ -31,7 +31,7 @@ if($username != null && $email != null && $password != null && $repeatPassword !
                 $_SESSION['email'] = $email;
                 $_SESSION['loginName'] = $username;
                 $_SESSION['userID'] = $mid;
-                $url = "member.php";
+                $url = "customerList.php";
                 echo "<script type='text/javascript'>";
                 echo "window.location.href='$url'";
                 echo "</script>";

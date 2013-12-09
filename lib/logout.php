@@ -6,6 +6,7 @@
 	unset($_SESSION['loginName']);
 	unset($_SESSION['userID']);
 	unset($_SESSION['cid']);
+	unset($_SESSION['admin']);
 
 	$url = "../index.php";
 	echo "<script type='text/javascript'>";

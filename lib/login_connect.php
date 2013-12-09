@@ -16,16 +16,23 @@
 	if($email != null && $password != null && ($row[2] == $email||$row[1] == $username)){
 
 		if(crypt($password,$row[3])==true){
-
-		//將帳號寫入session，方便驗證使用者身份
-		$_SESSION['email'] = $email;
-		$_SESSION['loginName'] = $row[1];
-		$_SESSION['userID'] = $row[0];
-
-		$url = "customerList.php";
-		echo "<script type='text/javascript'>";
-		echo "window.location.href='$url'";
-		echo "</script>";
+			//將帳號寫入session，方便驗證使用者身份
+			$_SESSION['email'] = $email;
+			$_SESSION['loginName'] = $row[1];
+			$_SESSION['userID'] = $row[0];
+			if($row[4]){
+				$_SESSION['admin'] = true;
+				$url = "adminEdit.php";
+				echo "<script type='text/javascript'>";
+				echo "window.location.href='$url'";
+				echo "</script>";
+			}
+			else{
+			$url = "customerList.php";
+			echo "<script type='text/javascript'>";
+			echo "window.location.href='$url'";
+			echo "</script>";
+			}
 		}
 		$url = "login.php";
 		echo "<script type='text/javascript'>";
