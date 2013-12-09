@@ -27,11 +27,6 @@
 		echo "window.location.href='$url'";
 		echo "</script>";
 		}
-
-		$url = "login.php";
-		echo "<script type='text/javascript'>";
-		echo "window.location.href='$url'";
-		echo "</script>";
 	}
 	else{
 		echo '登入失敗!';
