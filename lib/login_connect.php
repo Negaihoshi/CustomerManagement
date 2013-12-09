@@ -22,11 +22,12 @@
 		$_SESSION['loginName'] = $row[1];
 		$_SESSION['userID'] = $row[0];
 
-		$url = "member.php";
+		$url = "login_connect.php";
 		echo "<script type='text/javascript'>";
 		echo "window.location.href='$url'";
 		echo "</script>";
 		}
+
 		$url = "login.php";
 		echo "<script type='text/javascript'>";
 		echo "window.location.href='$url'";
