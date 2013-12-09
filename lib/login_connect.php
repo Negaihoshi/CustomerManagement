@@ -15,7 +15,7 @@
 	//以及MySQL資料庫裡是否有這個會員
 	if($email != null && $password != null && ($row[2] == $email||$row[1] == $username)){
 
-		if(crypt($password,$row[3])==$row[3]){
+		if(crypt($password,$row[3])==true){
 
 		//將帳號寫入session，方便驗證使用者身份
 		$_SESSION['email'] = $email;
