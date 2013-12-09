@@ -59,7 +59,7 @@
     </nav>
 
 
-    <div id="container">
+    <div id="content">
         <div clss="uk-grid">
         <div class="uk-width-2-5 uk-container-center">
         <form class="uk-form uk-form-horizontal" name="editForm" method="post" action="update.php">

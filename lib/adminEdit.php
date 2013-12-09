@@ -1,5 +1,5 @@
 <?
-    session_start();   
+    session_start();
 ?>
 <?
     if($_SESSION['email'] == null){
@@ -30,9 +30,7 @@
 <body ng-controller="SearchCtrl">
     <nav class="uk-navbar">
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="../index.php">客戶管理系統</a></li>
-            <li><a href="customerList.php">客戶管理</a></li>
-            <li class="uk-parent"><a href="customerAdd.php">新客戶</a></li>
+            <li><a href="../index.php">客戶管理系統</a></li>
         </ul>
 
         <div class="uk-navbar-flip">
@@ -40,9 +38,11 @@
                 <li class="uk-parent" data-uk-dropdown="">
                     <a href="memberEdit.php"><?$loginName = $_SESSION['loginName'];echo "$loginName";?> <i class="uk-icon-caret-down"></i></a>
 
-                    <div style="" class="uk-dropdown uk-dropdown-navbar">
+                    <div class="uk-dropdown uk-dropdown-navbar">
                         <ul class="uk-nav uk-nav-navbar">
                             <li><a href="memberEdit.php">修改會員資料</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="customerList.php">一般會員</a></li>
                             <li class="uk-nav-divider"></li>
                             <li><a href="logout.php">登出</a></li>
                         </ul>
@@ -51,7 +51,7 @@
         </div>
     </nav>
 
-    <div id="container">
+    <div id="content">
         <form class="uk-form">
             <fieldset>
                 <div class="uk-form-row">
@@ -65,29 +65,37 @@
                 </div>
             </fieldset>
         </form>
-        <table class="uk-table uk-table-striped">
-            <caption>會員資料</caption>
-            <thead>
-                <tr>
-                    <th>mid</th>
-                    <th>使用者名稱</th>
-                    <th>信箱</th>
-                    <th>密碼</th>
-                    <th>管理員</th>
-                    <th>註冊時間</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="customer in customers | filter:query | orderBy:orderProp">
-                    <td>{{customer.mid}}</td>
-                    <td>{{customer.username}}</a></td>
-                    <td>{{customer.email}}</td>
-                    <td>{{customer.password}}</td>
-                    <td>{{customer.admin}}</td>
-                    <td>{{customer.registerDate}}</td>
-                </tr>
-            </tbody>
-        </table>
+            <table class="uk-table uk-table-striped">
+                <caption>會員資料</caption>
+                <thead>
+                    <tr>
+                        <th>mid</th>
+                        <th>使用者名稱</th>
+                        <th>信箱</th>
+                        <th>密碼</th>
+                        <th>管理員</th>
+                        <th>註冊時間</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="customer in customers | filter:query | orderBy:orderProp">
+                        <td>{{customer.mid}}</td>
+                        <td>{{customer.username}}</a></td>
+                        <td>{{customer.email}}</td>
+                        <td>{{customer.password}}</td>
+                        <td>
+                            <form  class="uk-form" action="adminModify.php" method="POST">
+                                <select ng-model="admin" name="admin">
+                                    <option value="1">管理員</option>
+                                    <option value="0">一般會員</option>
+                                </select>
+                                <button class="uk-button uk-button-danger" type="submit">確定</button>
+                            </form>
+                        </td>
+                        <td>{{customer.registerDate}}</td>
+                    </tr>
+                </tbody>
+            </table>
     </div>
     <!--
     <div class="tm-footer">

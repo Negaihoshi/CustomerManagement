@@ -31,41 +31,40 @@
         </div>
     </nav>
 
-
-    <div clss="uk-grid">
-        <div class="uk-width-2-5 uk-container-center">
-        <form class="uk-form uk-form-horizontal" name="form" method="post" action="register_check.php">
-            <fieldset>
-                <legend>使用者註冊</legend>
-                <div class="uk-form-row">
-                    <label class="uk-form-label" for="username">使用者名稱</label>
-                    <input type="text" placeholder="Enter username" class="uk-form-width-medium" id="username" name="username" required autofucus>
-                </div>
-                <div class="uk-form-row">
-                    <label class="uk-form-label" for="email">電子信箱</label>
-                    <input type="email" placeholder="Enter email" class="uk-form-width-medium" id="email" name="email" required>
-                </div>
-                <div class="uk-form-row">
-                    <label class="uk-form-label" for="password">使用者密碼</label>
-                    <input type="password" placeholder="Enter Password" class="uk-form-width-medium" id="password" name="password" required>
-                </div>
-                <div class="uk-form-row">
-                    <label class="uk-form-label" for="repeatPassword">再次輸入密碼</label>
-                    <input type="password" placeholder="Enter Password" class="uk-form-width-medium" id="repeatPassword" name="repeatPassword" required>
-                </div>
-                <button class="uk-button" type="submit">註冊</button>
-            </fieldset>
-        </form>
+    <div id="content">
+        <div clss="uk-grid">
+            <div class="uk-width-2-5 uk-container-center">
+            <form class="uk-form uk-form-horizontal" name="form" method="post" action="register_check.php">
+                <fieldset>
+                    <legend>使用者註冊</legend>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label" for="username">使用者名稱</label>
+                        <input type="text" placeholder="Enter username" class="uk-form-width-medium" id="username" name="username" required autofucus>
+                    </div>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label" for="email">電子信箱</label>
+                        <input type="email" placeholder="Enter email" class="uk-form-width-medium" id="email" name="email" required>
+                    </div>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label" for="password">使用者密碼</label>
+                        <input type="password" placeholder="Enter Password" class="uk-form-width-medium" id="password" name="password" required>
+                    </div>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label" for="repeatPassword">再次輸入密碼</label>
+                        <input type="password" placeholder="Enter Password" class="uk-form-width-medium" id="repeatPassword" name="repeatPassword" required>
+                    </div>
+                    <button class="uk-button" type="submit">註冊</button>
+                </fieldset>
+            </form>
+            </div>
         </div>
     </div>
-
-    <div id="content">
-    </div>
+    <!--
     <footer id="footer">
         <hr>
         <p>&copy; Company 2013</p>
     </footer>
-
+    -->
     <!-- Javascript -->
     <script scr="js/uikit.min.js"></script>
 </body>

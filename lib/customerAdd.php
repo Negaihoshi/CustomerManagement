@@ -30,9 +30,9 @@
     <div id="header">
     <nav class="uk-navbar">
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="../index.php">客戶管理系統</a></li>
+            <li><a href="../index.php">客戶管理系統</a></li>
             <li><a href="customerList.php">客戶管理</a></li>
-            <li class="uk-parent"><a href="customerAdd.php">新客戶</a></li>
+            <li class="uk-active"><a href="customerAdd.php">新客戶</a></li>
         </ul>
 
         <div class="uk-navbar-flip">
@@ -43,6 +43,13 @@
                     <div style="" class="uk-dropdown uk-dropdown-navbar">
                         <ul class="uk-nav uk-nav-navbar">
                             <li><a href="memberEdit.php">修改會員資料</a></li>
+                            <?php 
+                                $admin = $_SESSION['admin'];
+                                if ($admin == 1) {
+                                    echo "<li class='uk-nav-divider'></li>";
+                                    echo "<li><a href='adminEdit.php'>管理員</a></li>";
+                                }
+                             ?>
                             <li class="uk-nav-divider"></li>
                             <li><a href="logout.php">登出</a></li>
                         </ul>

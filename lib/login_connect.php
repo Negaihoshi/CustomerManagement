@@ -28,10 +28,11 @@
 				echo "</script>";
 			}
 			else{
-			$url = "customerList.php";
-			echo "<script type='text/javascript'>";
-			echo "window.location.href='$url'";
-			echo "</script>";
+				$_SESSION['admin'] = false;
+				$url = "customerList.php";
+				echo "<script type='text/javascript'>";
+				echo "window.location.href='$url'";
+				echo "</script>";
 			}
 		}
 		$url = "login.php";
