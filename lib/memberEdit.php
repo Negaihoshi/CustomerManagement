@@ -49,6 +49,13 @@
                     <div style="" class="uk-dropdown uk-dropdown-navbar">
                         <ul class="uk-nav uk-nav-navbar">
                             <li><a href="memberEdit.php">修改會員資料</a></li>
+                            <?php 
+                                $admin = $_SESSION['admin'];
+                                if ($admin == 1) {
+                                    echo "<li class='uk-nav-divider'></li>";
+                                    echo "<li><a href='adminEdit.php'>管理員</a></li>";
+                                }
+                            ?>
                             <li class="uk-nav-divider"></li>
                             <li><a href="logout.php">登出</a></li>
                         </ul>
@@ -57,7 +64,6 @@
             </ul>
         </div>
     </nav>
-
 
     <div id="content">
         <div clss="uk-grid">

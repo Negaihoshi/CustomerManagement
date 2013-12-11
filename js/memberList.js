@@ -10,16 +10,6 @@ CustomerList.controller('SearchCtrl', function($scope, $http) {
   });
 
   $scope.orderProp = 'RegisterDate';
+  
+  $scope.admin = '1';
 });
-
-/*
-var JsonGet = function($scope, $http){
-	var jsonData = $http({
-		method: 'POST',
-		url: '/json'
-	});
-	jsonData.success(function(response, status, headers, config){
-		$scope.name = response.name;
-	});
-}
-*/

@@ -84,12 +84,9 @@
                         <td>{{customer.email}}</td>
                         <td>{{customer.password}}</td>
                         <td>
-                            <form  class="uk-form" action="adminModify.php" method="POST">
-                                <select ng-model="admin" name="admin">
-                                    <option value="1">管理員</option>
-                                    <option value="0">一般會員</option>
-                                </select>
-                                <button class="uk-button uk-button-danger" type="submit">確定</button>
+                            <form  class="uk-form" action="adminModify.php?mid={{customer.mid}}" method="POST">
+                                <label><input type="checkbox" name='admin' >管理員</label>
+                                <button class="uk-button uk-button-danger uk-button-mini" type="submit">確定</button>
                             </form>
                         </td>
                         <td>{{customer.registerDate}}</td>
