@@ -85,7 +85,7 @@
                         <td>{{customer.password}}</td>
                         <td>
                             <form  class="uk-form" action="adminModify.php?mid={{customer.mid}}" method="POST">
-                                <label><input type="checkbox" name='admin' >管理員</label>
+                                <label><input type="checkbox" name='admin' ng-module="customer.admin" ng-checked="customer.admin==1">管理員</label>
                                 <button class="uk-button uk-button-danger uk-button-mini" type="submit">確定</button>
                             </form>
                         </td>

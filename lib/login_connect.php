@@ -8,7 +8,7 @@
 	$sql = "SELECT * FROM member where email = '$email'";
 	$result = mysql_query($sql);
 	$row = mysql_fetch_row($result);
-	
+
 	//echo "$row[0] . $row[1] . $row[2] . $row[3] . $row[4]";
 
 	//判斷帳號與密碼是否為空白
@@ -20,15 +20,15 @@
 			$_SESSION['email'] = $email;
 			$_SESSION['loginName'] = $row[1];
 			$_SESSION['userID'] = $row[0];
-			if($row[4]){
-				$_SESSION['admin'] = true;
+			if($row[4]==1){
+				$_SESSION['admin'] = 1;
 				$url = "adminEdit.php";
 				echo "<script type='text/javascript'>";
 				echo "window.location.href='$url'";
 				echo "</script>";
 			}
 			else{
-				$_SESSION['admin'] = false;
+				$_SESSION['admin'] = 0;
 				$url = "customerList.php";
 				echo "<script type='text/javascript'>";
 				echo "window.location.href='$url'";

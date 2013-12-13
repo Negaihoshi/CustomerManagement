@@ -14,7 +14,7 @@ $email = $_POST['email'];
 if($_SESSION['username'] != null && $password != null && $repeatPassword != null && $password == $repeatPassword)
 {
         $username = $_SESSION['username'];
-    
+
         //更新資料庫資料語法
         $sql = "update member set password=$password where email='$email'";
         if(mysql_query($sql))

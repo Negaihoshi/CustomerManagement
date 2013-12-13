@@ -1,5 +1,5 @@
 <?
-    session_start();   
+    session_start();
 ?>
 <?
     if($_SESSION['email'] == null){
@@ -42,14 +42,13 @@
 
         <div class="uk-navbar-flip">
             <ul class="uk-navbar-nav">
-                
                 <li class="uk-parent" data-uk-dropdown="">
                     <a href="memberEdit.php"><?$loginName = $_SESSION['loginName'];echo "$loginName";?> <i class="uk-icon-caret-down"></i></a>
 
                     <div style="" class="uk-dropdown uk-dropdown-navbar">
                         <ul class="uk-nav uk-nav-navbar">
                             <li><a href="memberEdit.php">修改會員資料</a></li>
-                            <?php 
+                            <?php
                                 $admin = $_SESSION['admin'];
                                 if ($admin == 1) {
                                     echo "<li class='uk-nav-divider'></li>";

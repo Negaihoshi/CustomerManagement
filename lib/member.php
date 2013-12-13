@@ -1,6 +1,5 @@
 <?
-    session_start();   
-?>
+    session_start();
 <?
     if($_SESSION['email'] == null){
         echo "您無權限瀏覽此頁面";
@@ -52,8 +51,7 @@
     </nav>
 
 
-    <div id="container">
-        
+    <div id="content">
         <?php
         include("connect_db.php");
 
@@ -61,12 +59,10 @@
         //說不定是路人或不相關的使用者
         //因此要給予排除
 
-
-
 echo "<table class='uk-table'><caption>會員資料</caption><thead>";
 echo "<tr><th>ID</th><th>UserName</th><th>Email</th><th>Password</th><th>Admin</th><th>RegisterDate</th></tr></thead><tbody>";
         if($_SESSION['email'] != null)
-        {        
+        {
                 //將資料庫裡的所有會員資料顯示在畫面上
                 $sql = "SELECT * FROM member";
                 $result = mysql_query($sql);

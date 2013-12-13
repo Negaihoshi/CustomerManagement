@@ -11,6 +11,6 @@
             "mobile"=>"$row[5]" ,"address"=>"$row[6]", "addDate"=>"$row[7]");
         $cidnumber = $row[0];
     }
-    $_SESSION['$cid'] = $cidnumber;
+    $_SESSION['cid'] = $cidnumber;
     echo json_encode($JsonTable, JSON_UNESCAPED_UNICODE);
 ?>

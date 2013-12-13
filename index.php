@@ -31,7 +31,12 @@
                         echo "<li><a href='lib/register.php'>註冊</a></li>";
                     }
                     else {
-                        echo "<li><a href='lib/customerList.php'>主控台</a></li>";
+                        if(isset($_SESSION['admin'])==true){
+                            if($_SESSION['admin']==1) echo "<li><a href='lib/adminEdit.php'>主控台</a></li>";
+                            else echo "<li><a href='lib/customerList.php'>主控台</a></li>";
+                        }else{
+                            echo "<li><a href='lib/customerList.php'>主控台</a></li>";
+                        }
                         echo "<li><a href='lib/logout.php'>登出</a></li>";
                     }
                 ?>

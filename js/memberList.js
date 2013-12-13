@@ -10,6 +10,5 @@ CustomerList.controller('SearchCtrl', function($scope, $http) {
   });
 
   $scope.orderProp = 'RegisterDate';
-  
-  $scope.admin = '1';
+
 });

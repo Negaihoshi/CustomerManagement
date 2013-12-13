@@ -17,7 +17,8 @@ $repeatPassword =$_POST['repeatPassword'];
 if($username != null && $email != null && $password != null && $repeatPassword != null && $password == $repeatPassword){
 
         //新增資料進資料庫語法
-        $salt = substr($password, 0, 2); 
+        $salt = substr($password, 0, 2);
+
         $cryptPassword = crypt($password,$salt);
 
         $sql = "insert into member (username, email, password) values ('$username', '$email', '$cryptPassword')";

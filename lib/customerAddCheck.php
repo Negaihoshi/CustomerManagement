@@ -21,7 +21,7 @@ while($row = mysql_fetch_array($result)){
 if(isset($cid)==false) $cid=0;
 
 if($name != null && $email != null && $phone!= null &&  $mobile != null && $address != null){
-    
+
     foreach($name as $key => $val){
         $cid+=1;
         $sql = "insert into customer (cid, mid, name, email, phone, mobile, address) values ('$cid', '$userID','$name[$key]', '$email[$key]', '$phone[$key]', '$mobile[$key]', '$address[$key]')";
@@ -39,9 +39,9 @@ if($name != null && $email != null && $phone!= null &&  $mobile != null && $addr
             echo "<script type='text/javascript'>";
             echo "window.location.href='$url'";
             echo "</script>";
-        }      
+        }
     }
-    
+
 }
 else{
     //echo '您無權限觀看此頁面!';

@@ -1,25 +1,32 @@
 <?php session_start(); ?>
 <?php
 include("connect_db.php");
-
+if(isset($_POST['admin'])==true)
 $admin = $_POST['admin'];
+else $admin='off';
 $mid   = $_GET['mid'];
 $userID = $_SESSION['userID'];
-
+if ($admin=='on') {
+    $admin=1;
+}
+else {
+    $admin=0;
+}
 
 if($_SESSION['email']!= null && $mid != $userID){
-
     $sql = "update member set admin='$admin' where mid = '$mid'";
     if(mysql_query($sql)){
-        //echo '修改成功!';
+        echo '修改成功!';
         $url = "adminEdit.php";
+
         echo "<script type='text/javascript'>";
         echo "window.location.href='$url'";
         echo "</script>";
     }
     else{
-        //echo '修改失敗!';
+        echo '修改失敗!';
         $url = "adminEdit.php";
+
         echo "<script type='text/javascript'>";
         echo "window.location.href='$url'";
         echo "</script>";

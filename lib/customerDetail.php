@@ -1,5 +1,5 @@
 <?
-    session_start();   
+    session_start();
 ?>
 <!doctype html>
 <html lang="zh-tw" ng-app="CustomerList">
@@ -59,7 +59,7 @@
             $result = mysql_query($sql);
             $row = mysql_fetch_row($result);
         ?>
-        
+
         <form class="uk-form" name="editForm" method="post" action="customerModify.php">
             <fieldset>
                 <legend>客戶資料</legend>
@@ -86,7 +86,7 @@
             <a class="uk-button uk-button-danger" href="customerDelete.php">刪除</a>
         </form>
     </div>
-    
+
     <footer id="footer">
         <hr>
         <p>&copy; Company 2013</p>
