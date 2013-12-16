@@ -74,7 +74,7 @@
                 if(isset($_COOKIE['editError'])==true){
                     if ($_COOKIE['editError'] == 'false') {
                         echo "<div class='uk-alert uk-alert-warning'>";
-                        echo '<p>密碼錯誤！</p>';
+                        echo '<p>目前的密碼或新密碼輸入錯誤！</p>';
                         echo '</div>';
                     }
                 }
@@ -105,7 +105,7 @@
                 <div class="uk-form-row">
                     <label class="uk-form-label" for="repeatPassword">再次輸入新密碼</label>
                     <input type="password" placeholder="Confirm Password" class="uk-form-width-medium" id="repeatPassword" name="repeatPassword" required>
-                </div> 
+                </div>
             </fieldset>
             <button class="uk-button" type="submit">修改</button>
         </form>

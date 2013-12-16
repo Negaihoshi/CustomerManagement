@@ -18,7 +18,13 @@ if($row[3]!=$cryptPassword) {
 }
 $password = $_POST['password'];
 $repeatPassword = $_POST['repeatPassword'];
-
+if($password!=$repeatPassword) {
+    setcookie("editError", "false", time()+30);
+    $url = "memberEdit.php";
+    echo "<script type='text/javascript'>";
+    echo "window.location.href='$url'";
+    echo "</script>";
+}
 
 //紅色字體為判斷密碼是否填寫正確
 if($password != null && $repeatPassword != null && $password == $repeatPassword){
