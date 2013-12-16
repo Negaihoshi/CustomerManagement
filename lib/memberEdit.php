@@ -2,9 +2,9 @@
     session_start();
 ?>
 <?
-    if($_SESSION['email'] == null){
-        echo "您無權限瀏覽此頁面";
-        $url = "../index.php";
+    if(isset($_SESSION['email'])== false){
+        setcookie("userCheck", "false", time()+60);
+        $url = "login.php";
         echo "<script type='text/javascript'>";
         echo "window.location.href='$url'";
         echo "</script>";
@@ -70,6 +70,15 @@
     <div id="content">
         <div clss="uk-grid">
         <div class="uk-width-2-5 uk-container-center">
+            <?php
+                if(isset($_COOKIE['editError'])==true){
+                    if ($_COOKIE['editError'] == 'false') {
+                        echo "<div class='uk-alert uk-alert-warning'>";
+                        echo '<p>密碼錯誤！</p>';
+                        echo '</div>';
+                    }
+                }
+            ?>
         <form class="uk-form uk-form-horizontal" name="editForm" method="post" action="update.php">
             <fieldset>
                 <legend>會員資料</legend>

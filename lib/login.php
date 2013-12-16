@@ -34,6 +34,15 @@
     <div id="content">
         <div clss="uk-grid">
             <div class="uk-width-2-5 uk-container-center">
+            <?php
+                if(isset($_COOKIE['userCheck'])==true){
+                    if ($_COOKIE['userCheck'] == 'false') {
+                        echo "<div class='uk-alert uk-alert-warning'>";
+                        echo '<p>您需要登入才可以瀏覽這些頁面！</p>';
+                        echo '</div>';
+                    }
+                }
+            ?>
             <form class="uk-form uk-form-horizontal" name="form" method="post" action="login_connect.php">
                 <fieldset>
                     <legend>使用者登入</legend>
