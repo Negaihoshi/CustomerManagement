@@ -4,7 +4,10 @@
 <?
     if($_SESSION['email'] == null){
         echo "您無權限瀏覽此頁面";
-        echo "<meta http-equiv=REFRESH CONTENT=2;url=../index.php>";
+        $url = "../index.php";
+        echo "<script type='text/javascript'>";
+        echo "window.location.href='$url'";
+        echo "</script>";
     }
 ?>
 <!doctype html>

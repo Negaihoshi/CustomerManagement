@@ -44,8 +44,11 @@ if($name != null && $email != null && $phone!= null &&  $mobile != null && $addr
 
 }
 else{
-    //echo '您無權限觀看此頁面!';
-    //echo '<meta http-equiv=REFRESH CONTENT=2;url=register.php>';
+        echo '您無權限觀看此頁面!';
+        $url = "../register.php";
+        echo "<script type='text/javascript'>";
+        echo "window.location.href='$url'";
+        echo "</script>";
 }
 
 ?>

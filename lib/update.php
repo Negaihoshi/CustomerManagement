@@ -17,17 +17,26 @@ if($password != null && $repeatPassword != null && $password == $repeatPassword)
         if(mysql_query($sql))
         {
                 echo '修改成功!';
-                echo '<meta http-equiv=REFRESH CONTENT=2;url=customerList.php>';
+                $url = "customerList.php";
+                echo "<script type='text/javascript'>";
+                echo "window.location.href='$url'";
+                echo "</script>";
         }
         else
         {
                 echo '修改失敗!';
-                echo '<meta http-equiv=REFRESH CONTENT=2;url=member.php>';
+                $url = "member.php";
+                echo "<script type='text/javascript'>";
+                echo "window.location.href='$url'";
+                echo "</script>";
         }
 }
 else
 {
         echo '您無權限觀看此頁面!';
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=../index.php>';
+        $url = "../index.php";
+        echo "<script type='text/javascript'>";
+        echo "window.location.href='$url'";
+        echo "</script>";
 }
 ?>

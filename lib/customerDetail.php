@@ -1,6 +1,15 @@
 <?
     session_start();
 ?>
+<?
+    if($_SESSION['email'] == null){
+        echo "您無權限瀏覽此頁面";
+        $url = "../index.php";
+        echo "<script type='text/javascript'>";
+        echo "window.location.href='$url'";
+        echo "</script>";
+    }
+?>
 <!doctype html>
 <html lang="zh-tw" ng-app="CustomerList">
 

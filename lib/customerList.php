@@ -4,7 +4,10 @@
 <?
     if($_SESSION['email'] == null){
         echo "您無權限瀏覽此頁面";
-        echo "<meta http-equiv=REFRESH CONTENT=2;url=../index.php>";
+        $url = "../index.php";
+        echo "<script type='text/javascript'>";
+        echo "window.location.href='$url'";
+        echo "</script>";
     }
 ?>
 <!doctype html>
@@ -78,8 +81,6 @@
             <caption>客戶資料</caption>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>填寫人 ID</th>
                     <th>客戶名稱</th>
                     <th>信箱</th>
                     <th>聯絡電話</th>
@@ -90,8 +91,6 @@
             </thead>
             <tbody>
                 <tr ng-repeat="customer in customers | filter:query | orderBy:orderProp">
-                    <td>{{customer.cid}}</td>
-                    <td>{{customer.mid}}</td>
                     <td><a ng-href="customerDetail.php?cid={{customer.cid}}">{{customer.name}}</a></td>
                     <td>{{customer.email}}</td>
                     <td>{{customer.tel}}</td>
