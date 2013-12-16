@@ -9,7 +9,6 @@ $password = $_POST['password'];
 $repeatPassword = $_POST['repeatPassword'];
 $email = $_POST['email'];
 
-
 //紅色字體為判斷密碼是否填寫正確
 if($_SESSION['username'] != null && $password != null && $repeatPassword != null && $password == $repeatPassword)
 {
@@ -31,6 +30,6 @@ if($_SESSION['username'] != null && $password != null && $repeatPassword != null
 else
 {
         echo '您無權限觀看此頁面!';
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
+        echo '<meta http-equiv=REFRESH CONTENT=2;url=../index.php>';
 }
 ?>
