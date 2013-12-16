@@ -47,12 +47,6 @@
 
 
     <div id="content">
-        <?
-            foreach ($_SESSION as $key=>$val)
-            echo $key."=>".$val."   ";
-
-            print_r($_SESSION);
-        ?>
     </div>
     <!--
     <div class="tm-footer">
