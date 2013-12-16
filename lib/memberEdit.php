@@ -52,10 +52,12 @@
                         <ul class="uk-nav uk-nav-navbar">
                             <li><a href="memberEdit.php">修改會員資料</a></li>
                             <?php
-                                $admin = $_SESSION['admin'];
-                                if ($admin == 1) {
-                                    echo "<li class='uk-nav-divider'></li>";
-                                    echo "<li><a href='adminEdit.php'>管理員</a></li>";
+                                if(isset($_SESSION['admin'])==true){
+                                    $admin = $_SESSION['admin'];
+                                    if ($admin == 1) {
+                                        echo "<li class='uk-nav-divider'></li>";
+                                        echo "<li><a href='adminEdit.php'>管理員</a></li>";
+                                    }
                                 }
                             ?>
                             <li class="uk-nav-divider"></li>
