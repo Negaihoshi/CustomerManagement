@@ -72,7 +72,7 @@
                 <legend>會員資料</legend>
                 <div class="uk-form-row">
                     <label class="uk-form-label" for="username">使用者名稱</label>
-                    <input type="text" placeholder="<?echo "$row[1]";?>" class="uk-form-width-medium" id="username" name="username" required autofucus>
+                    <input type="text" placeholder="<?echo "$row[1]";?>" class="uk-form-width-medium" id="username" name="username" disabled>
                 </div>
                 <div class="uk-form-row">
                     <label class="uk-form-label" for="email">電子信箱</label>
@@ -84,7 +84,7 @@
                 <legend>修改密碼</legend>
                 <div class="uk-form-row">
                     <label class="uk-form-label" for="currentPassword">目前的密碼</label>
-                    <input type="password" placeholder="<?echo "$row[3]";?>" class="uk-form-width-medium" id="currentPassword" name="currentPassword" required>
+                    <input type="password" class="uk-form-width-medium" id="currentPassword" name="currentPassword" required>
                 </div>
                 <div class="uk-form-row">
                     <label class="uk-form-label" for="password">新密碼</label>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="uk-form-row">
                     <label class="uk-form-label" for="repeatPassword">再次輸入新密碼</label>
-                    <input type="password" placeholder="Enter Password" class="uk-form-width-medium" id="repeatPassword" name="repeatPassword" required>
+                    <input type="password" placeholder="Confirm Password" class="uk-form-width-medium" id="repeatPassword" name="repeatPassword" required>
                 </div> 
             </fieldset>
             <button class="uk-button" type="submit">修改</button>

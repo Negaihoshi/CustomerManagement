@@ -21,8 +21,6 @@
     <nav class="uk-navbar">
         <ul class="uk-navbar-nav">
             <li class="uk-active"><a href="../index.php">客戶管理系統</a></li>
-            <li><a href="">測試1</a></li>
-            <li class="uk-parent"><a href="">測試2</a></li>
         </ul>
 
         <div class="uk-navbar-flip">
@@ -40,8 +38,8 @@
                 <fieldset>
                     <legend>使用者登入</legend>
                     <div class="uk-form-row">
-                        <label class="uk-form-label" for="email">電子信箱或使用者名稱</label>
-                        <input type="email" placeholder="Enter Email or User Name" class="uk-form-width-medium" id="email" name="email" required>
+                        <label class="uk-form-label" for="email">電子信箱</label>
+                        <input type="email" placeholder="Enter Email" class="uk-form-width-medium" id="email" name="email" required>
                     </div>
                     <div class="uk-form-row">
                         <label class="uk-form-label" for="password">使用者密碼</label>
